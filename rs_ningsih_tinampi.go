@@ -140,6 +140,10 @@ func login(w http.ResponseWriter, r *http.Request) {
 	}
 	for rows.Next() {
 		rows.Scan(&mEmailDatabase, &mPasswordDatabase)
+		log.Println(mEmail)
+		log.Println(mEmailDatabase)
+		log.Println(mPassword)
+		log.Println(mPasswordDatabase)
 		if (mEmail == mEmailDatabase) && (mPassword == mPasswordDatabase) {
 			isUserMatch = true
 			break
