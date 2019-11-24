@@ -130,7 +130,7 @@ func main() {
 	mux.HandleFunc("/updateData2", updateDataHandler2)
 	mux.HandleFunc("/deleteData", deleteDataHandler)
 
-	http.ListenAndServe(":1810", mux)
+	http.ListenAndServe(":8080", mux)
 }
 
 func createDataHandler(w http.ResponseWriter, r *http.Request) {
