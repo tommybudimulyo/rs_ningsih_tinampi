@@ -96,7 +96,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 
 	m2 := responseObject{"Register success"}
 	if isUserMatch {
-		m2 = responseObject{"Register failed"}
+		http.Error(w, "404 not found", http.StatusNotFound)
 
 	}
 	a, err3 := json.Marshal(m2)
@@ -154,7 +154,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 	m2 := responseObject{"Login success"}
 	if !isUserMatch {
-		m2 = responseObject{"Login failed"}
+		http.Error(w, "404 not found.", http.StatusNotFound)
 	}
 	a, err3 := json.Marshal(m2)
 	if err3 != nil {
