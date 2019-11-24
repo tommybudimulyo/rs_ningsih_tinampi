@@ -153,7 +153,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 	m2 := responseObject{"Login success"}
 	if !isUserMatch {
-		m2 := responseObject{"Login failed"}
+		m2 = responseObject{"Login failed"}
 	}
 	a, err3 := json.Marshal(m2)
 	if err3 != nil {
