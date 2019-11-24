@@ -134,16 +134,13 @@ func login(w http.ResponseWriter, r *http.Request) {
 	mEmailDatabase := ""
 	mPasswordDatabase := ""
 	isUserMatch := false
+	log.Println(mEmail)
 	rows, err2 := tx.Query("SELECT email, password FROM userList WHERE email=?", mEmail)
 	if err2 != nil {
 		log.Println(err2)
 	}
 	for rows.Next() {
 		rows.Scan(&mEmailDatabase, &mPasswordDatabase)
-		log.Println(mEmail)
-		log.Println(mEmailDatabase)
-		log.Println(mPassword)
-		log.Println(mPasswordDatabase)
 		if (mEmail == mEmailDatabase) && (mPassword == mPasswordDatabase) {
 			isUserMatch = true
 			break
