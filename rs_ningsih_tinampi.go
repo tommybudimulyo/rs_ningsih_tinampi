@@ -46,13 +46,15 @@ func main() {
 
 func register(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
-		http.Error(w, "404 not found.", http.StatusNotFound)
+		log.Println("Request method is not POST")
+		http.Error(w, "Request method is wrong", http.StatusNotFound)
 		return
 
 	}
 
 	if err0 := r.ParseMultipartForm(0); err0 != nil {
-		http.Error(w, "404 not found.", http.StatusNotFound)
+		log.Println("Post body is wrong")
+		http.Error(w, "Post body is wrong", http.StatusNotFound)
 		return
 	}
 
@@ -62,6 +64,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 	database, err1 := sql.Open("sqlite3", "./rs_ningsih_tinampi.db")
 	if err1 != nil {
 		log.Println(err1)
+		http.Error(w, "Open database error", http.StatusInternalServerError)
 		return
 	}
 	tx := initDatabase(database)
@@ -73,6 +76,8 @@ func register(w http.ResponseWriter, r *http.Request) {
 	rows, err2 := tx.Query("SELECT email FROM userList WHERE email=?", mEmail)
 	if err2 != nil {
 		log.Println(err2)
+		http.Error(w, "Read Database error", http.StatusInternalServerError)
+		return
 	}
 	for rows.Next() {
 		rows.Scan(&mEmailDatabase)
@@ -85,6 +90,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 		stmt, err2 := tx.Prepare("INSERT INTO userList (email, password) VALUES (?, ?)")
 		if err2 != nil {
 			log.Println(err2)
+			http.Error(w, "Register user error", http.StatusInternalServerError)
 			return
 		}
 		stmt.Exec(mEmail, mPassword)
@@ -96,12 +102,15 @@ func register(w http.ResponseWriter, r *http.Request) {
 
 	m2 := responseObject{"Register success"}
 	if isUserMatch {
-		http.Error(w, "404 not found", http.StatusNotFound)
+		log.Println("User already exists")
+		http.Error(w, "User already exists", http.StatusConflict)
+		return
 
 	}
 	a, err3 := json.Marshal(m2)
 	if err3 != nil {
 		log.Println(err3)
+		http.Error(w, "Format response error", http.StatusInternalServerError)
 		return
 	}
 	w.Write(a)
@@ -110,13 +119,15 @@ func register(w http.ResponseWriter, r *http.Request) {
 
 func login(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
-		http.Error(w, "404 not found.", http.StatusNotFound)
+		log.Println("Request method is not POST")
+		http.Error(w, "Request method is wrong", http.StatusNotFound)
 		return
 
 	}
 
 	if err0 := r.ParseMultipartForm(0); err0 != nil {
-		http.Error(w, "404 not found.", http.StatusNotFound)
+		log.Println("Post body is wrong")
+		http.Error(w, "Post body is wrong", http.StatusNotFound)
 		return
 	}
 
@@ -126,6 +137,8 @@ func login(w http.ResponseWriter, r *http.Request) {
 	database, err1 := sql.Open("sqlite3", "./rs_ningsih_tinampi.db")
 	if err1 != nil {
 		log.Println(err1)
+		http.Error(w, "Open database error", http.StatusInternalServerError)
+		return
 	}
 	tx := initDatabase(database)
 	defer database.Close()
@@ -138,6 +151,8 @@ func login(w http.ResponseWriter, r *http.Request) {
 	rows, err2 := tx.Query("SELECT email, password FROM userList WHERE email=?", mEmail)
 	if err2 != nil {
 		log.Println(err2)
+		http.Error(w, "Read Database error", http.StatusInternalServerError)
+		return
 	}
 	for rows.Next() {
 		rows.Scan(&mEmailDatabase, &mPasswordDatabase)
@@ -154,11 +169,14 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 	m2 := responseObject{"Login success"}
 	if !isUserMatch {
-		http.Error(w, "404 not found.", http.StatusNotFound)
+		log.Println("User not found")
+		http.Error(w, "User not found", http.StatusConflict)
+		return
 	}
 	a, err3 := json.Marshal(m2)
 	if err3 != nil {
 		log.Println(err3)
+		http.Error(w, "Format response error", http.StatusInternalServerError)
 		return
 	}
 	w.Write(a)
