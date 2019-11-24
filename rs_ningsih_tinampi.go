@@ -51,7 +51,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	if err0 := r.ParseForm(); err0 != nil {
+	if err0 := r.ParseMultipartForm(0); err0 != nil {
 		http.Error(w, "404 not found.", http.StatusNotFound)
 		return
 	}
@@ -115,7 +115,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	if err0 := r.ParseForm(); err0 != nil {
+	if err0 := r.ParseMultipartForm(0); err0 != nil {
 		http.Error(w, "404 not found.", http.StatusNotFound)
 		return
 	}
