@@ -122,15 +122,13 @@ func updateDataAndroid2() {
 }
 
 func main() {
-	mux := http.NewServeMux()
+	http.HandleFunc("/createData", createDataHandler)
+	http.HandleFunc("/readData", readDataHandler)
+	http.HandleFunc("/updateData", updateDataHandler)
+	http.HandleFunc("/updateData2", updateDataHandler2)
+	http.HandleFunc("/deleteData", deleteDataHandler)
 
-	mux.HandleFunc("/createData", createDataHandler)
-	mux.HandleFunc("/readData", readDataHandler)
-	mux.HandleFunc("/updateData", updateDataHandler)
-	mux.HandleFunc("/updateData2", updateDataHandler2)
-	mux.HandleFunc("/deleteData", deleteDataHandler)
-
-	http.ListenAndServe(":8080", mux)
+	http.ListenAndServe(":8080", nil)
 }
 
 func createDataHandler(w http.ResponseWriter, r *http.Request) {
