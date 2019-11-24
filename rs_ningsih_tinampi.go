@@ -1,13 +1,10 @@
 package main
 
 import (
-	"bytes"
 	"database/sql"
 	"encoding/json"
-	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -18,8 +15,8 @@ type responseObject struct {
 }
 
 type userObject struct {
-	Email		string
-	Password	string
+	Email    string
+	Password string
 }
 
 //Function Helper
@@ -48,10 +45,10 @@ func main() {
 }
 
 func register(w http.ResponseWriter, r *http.Request) {
-	if (r.Method != "POST") {
+	if r.Method != "POST" {
 		http.Error(w, "404 not found.", http.StatusNotFound)
 		return
-		
+
 	}
 
 	if err0 := r.ParseForm(); err0 != nil {
@@ -79,13 +76,12 @@ func register(w http.ResponseWriter, r *http.Request) {
 	}
 	for rows.Next() {
 		rows.Scan(&mEmailDatabase)
-		isUserMatch = true;
-		break;
+		isUserMatch = true
+		break
 
 	}
-	defer rows.Close
 
-	if (!isUserMatch) {
+	if !isUserMatch {
 		stmt, err2 := tx.Prepare("INSERT INTO userList (email, password) VALUES (?, ?)")
 		if err2 != nil {
 			log.Println(err2)
@@ -95,12 +91,11 @@ func register(w http.ResponseWriter, r *http.Request) {
 		defer stmt.Close()
 	}
 
-
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 
 	m2 := responseObject{"Register success"}
-	if(isUserMatch) {
+	if isUserMatch {
 		m2 = responseObject{"Register failed"}
 
 	}
@@ -114,10 +109,10 @@ func register(w http.ResponseWriter, r *http.Request) {
 }
 
 func login(w http.ResponseWriter, r *http.Request) {
-	if (r.Method != "POST") {
+	if r.Method != "POST" {
 		http.Error(w, "404 not found.", http.StatusNotFound)
 		return
-		
+
 	}
 
 	if err0 := r.ParseForm(); err0 != nil {
@@ -145,20 +140,19 @@ func login(w http.ResponseWriter, r *http.Request) {
 	}
 	for rows.Next() {
 		rows.Scan(&mEmailDatabase, &mPasswordDatabase)
-		if ((mEmail == mEmailDatabase) && (mPassword == mPasswordDatabase)) {
-			isUserMatch = true;
-			break;
+		if (mEmail == mEmailDatabase) && (mPassword == mPasswordDatabase) {
+			isUserMatch = true
+			break
 
 		}
 
 	}
-	defer rows.Close
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 
 	m2 := responseObject{"Login success"}
-	if (!isUserMatch) {
+	if !isUserMatch {
 		m2 := responseObject{"Login failed"}
 	}
 	a, err3 := json.Marshal(m2)
