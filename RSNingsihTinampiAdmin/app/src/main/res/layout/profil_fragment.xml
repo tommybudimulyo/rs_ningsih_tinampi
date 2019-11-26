@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ProfilFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="40dp">
+
+        <!--1-->
+        <ImageView
+            android:id="@+id/imageView_profile_fragment_1"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <!--2-->
+        <TextView
+            android:id="@+id/textView_profile_fragment_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/a16"
+            android:textColor="@color/primary_text"
+            android:textSize="7pt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_profile_fragment_1" />
+
+        <!--3-->
+        <EditText
+            android:id="@+id/editText_profile_fragment_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/textView_profile_fragment_2" />
+
+        <!--4-->
+        <TextView
+            android:id="@+id/textView_profile_fragment_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/a17"
+            android:textColor="@color/primary_text"
+            android:textSize="7pt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_profile_fragment_3" />
+
+        <!--5-->
+        <EditText
+            android:id="@+id/editText_profile_fragment_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/a18"
+            android:inputType="textEmailAddress"
+            app:layout_constraintTop_toBottomOf="@+id/textView_profile_fragment_4" />
+
+        <!--6-->
+        <TextView
+            android:id="@+id/textView_profile_fragment_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/a19"
+            android:textColor="@color/primary_text"
+            android:textSize="7pt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_profile_fragment_5" />
+
+        <!--7-->
+        <EditText
+            android:id="@+id/editText_profile_fragment_7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            app:layout_constraintTop_toBottomOf="@+id/textView_profile_fragment_6" />
+
+        <!--8-->
+        <TextView
+            android:id="@+id/textView_profile_fragment_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/a20"
+            android:textColor="@color/primary_text"
+            android:textSize="7pt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_profile_fragment_7" />
+
+        <!--9-->
+        <Spinner
+            android:id="@+id/spinner_profile_fragment_9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintTop_toBottomOf="@+id/textView_profile_fragment_8" />
+
+        <!--10-->
+        <TextView
+            android:id="@+id/textView_profile_fragment_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/a21"
+            android:textColor="@color/primary_text"
+            android:textSize="7pt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_profile_fragment_9" />
+
+        <!--11-->
+        <EditText
+            android:id="@+id/editText_profile_fragment_11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            app:layout_constraintTop_toBottomOf="@+id/textView_profile_fragment_10" />
+
+        <!--12-->
+        <TextView
+            android:id="@+id/textView_profile_fragment_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/a22"
+            android:textColor="@color/primary_text"
+            android:textSize="7pt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_profile_fragment_11" />
+
+        <!--13-->
+        <EditText
+            android:id="@+id/editText_profile_fragment_13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            app:layout_constraintTop_toBottomOf="@+id/textView_profile_fragment_12" />
+
+        <!--14-->
+        <Button
+            android:id="@+id/button_profile_fragment_14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@color/colorAccent"
+            android:text="@string/a23"
+            android:textColor="@color/icons"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_profile_fragment_13" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

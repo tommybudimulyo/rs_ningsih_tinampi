@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="40dp"
+    android:background="@color/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ResetPasswordFragment">
+
+    <!--1-->
+
+    <ImageView
+        android:id="@+id/imageView_register_fragment_1"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <!--2-->
+    <TextView
+        android:id="@+id/textView_register_fragment_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/a8"
+        android:textColor="@color/primary_text"
+        android:textSize="7pt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_register_fragment_1" />
+
+    <!--3-->
+    <EditText
+        android:id="@+id/editText_register_fragment_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/a9"
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/textView_register_fragment_2" />
+
+    <!--4-->
+    <TextView
+        android:id="@+id/textView_register_fragment_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/a10"
+        android:textColor="@color/primary_text"
+        android:textSize="7pt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_register_fragment_3" />
+
+    <!--5-->
+    <EditText
+        android:id="@+id/editText_register_fragment_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@+id/textView_register_fragment_4" />
+
+    <!--6-->
+    <TextView
+        android:id="@+id/textView_register_fragment_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/a11"
+        android:textColor="@color/primary_text"
+        android:textSize="7pt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_register_fragment_5" />
+
+    <!--7-->
+    <EditText
+        android:id="@+id/editText_register_fragment_7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@+id/textView_register_fragment_6" />
+
+    <!--8-->
+    <Button
+        android:id="@+id/button_register_fragment_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
+        android:background="@color/colorAccent"
+        android:text="@string/a12"
+        android:textColor="@color/icons"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_register_fragment_7" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

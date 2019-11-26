@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">RS Ningsih Tinampi</string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="logout">Logout</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Profile</string>
+    <!--login_fragment-->
+    <string name="a1">Email</string>
+    <string name="a2">support@arigo.com</string>
+    <string name="a3">Password</string>
+    <string name="a4">Forgot Password</string>
+    <string name="a5">Login</string>
+    <string name="a6">Register</string>
+    <!--splash screen fragment-->
+    <string name="a7">RS Ningsih Tinampi</string>
+    <!--register password fragment-->
+    <string name="a8">Email</string>
+    <string name="a9">support@arigo.com</string>
+    <string name="a10">Password</string>
+    <string name="a11">Confirm Password</string>
+    <string name="a12">Register</string>
+    <!--reset password fragment-->
+    <string name="a13">Email</string>
+    <string name="a14">support@arigo.com</string>
+    <string name="a15">Reset Password</string>
+    <!--profil fragment-->
+    <string name="a16">Name</string>
+    <string name="a17">Email</string>
+    <string name="a18">support@arigo.com</string>
+    <string name="a19">Password</string>
+    <string name="a20">Gender</string>
+    <string name="a21">Birthday</string>
+    <string name="a22">Phone Number</string>
+    <string name="a23">Save</string>
+    <!--home fragment-->
+    <string name="a24">15000</string>
+    <string name="a25">Queue Left</string>
+    <string name="a26">Join</string>
+    <string name="a27">Cancel</string>
+</resources>
