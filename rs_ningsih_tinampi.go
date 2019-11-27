@@ -11,7 +11,6 @@ import (
 
 //Object
 type successResponseObject struct {
-	Success bool
 	Message string
 	Data    []byte
 }
@@ -121,7 +120,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	m2 := successResponseObject{true, "Register success", nil}
+	m2 := successResponseObject{"Register success", nil}
 	a, err3 := json.Marshal(m2)
 	if err3 != nil {
 		log.Println(err3)
@@ -196,7 +195,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 
-	m2 := successResponseObject{true, "Login success", nil}
+	m2 := successResponseObject{"Login success", nil}
 	if !isUserMatch {
 		log.Println("User not found")
 		w.WriteHeader(409)
