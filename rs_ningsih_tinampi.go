@@ -198,6 +198,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	if !isUserMatch {
 		log.Println("User not found")
 		w.WriteHeader(200)
+		w.WriteHeader(500)
 		w.WriteHeader(409)
 		http.Error(w, "User not found", http.StatusConflict)
 		return
