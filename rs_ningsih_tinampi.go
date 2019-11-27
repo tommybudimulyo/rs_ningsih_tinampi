@@ -135,6 +135,8 @@ func register(w http.ResponseWriter, r *http.Request) {
 }
 
 func login(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
 	if r.Method != "POST" {
 		log.Println("Request method is not POST")
 		w.WriteHeader(404)
@@ -192,9 +194,6 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(200)
-
 	m2 := successResponseObject{"Login success", nil}
 	if !isUserMatch {
 		log.Println("User not found")
@@ -209,6 +208,8 @@ func login(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Format response error", http.StatusInternalServerError)
 		return
 	}
+
+	w.WriteHeader(200)
 	w.Write(a)
 
 }
