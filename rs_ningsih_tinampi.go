@@ -197,8 +197,8 @@ func login(w http.ResponseWriter, r *http.Request) {
 	m2 := successResponseObject{"Login success", nil}
 	if !isUserMatch {
 		log.Println("User not found")
-		w.WriteHeader(409)
-		http.Error(w, "User not found", http.StatusConflict)
+		w.WriteHeader(404)
+		http.Error(w, "User not found", http.NotFound)
 		return
 	}
 	a, err3 := json.Marshal(m2)
